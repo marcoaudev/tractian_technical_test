@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:tractian_technical_test/features/domain/entities/company.dart';
 
-class ItemCompanyWidget extends StatelessWidget {
+class CompanyItem extends StatelessWidget {
   final CompanyEntity company;
 
-  const ItemCompanyWidget({super.key, required this.company});
+  const CompanyItem({super.key, required this.company});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(
+          '/asset',
+          arguments: {"name": company.name},
+        );
+      },
       child: Container(
         margin: const EdgeInsets.all(20),
         height: 85,
